@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex_pf.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adiaz-be <adiaz-be@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/15 14:53:32 by adiaz-be          #+#    #+#             */
-/*   Updated: 2022/10/15 14:53:36 by adiaz-be         ###   ########.fr       */
+/*   Created: 2024/02/15 18:49:29 by albealva          #+#    #+#             */
+/*   Updated: 2024/02/15 18:49:30 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "ft_printf.h"
 

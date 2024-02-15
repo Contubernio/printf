@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adiaz-be <adiaz-be@student.42malaga.c      +#+  +:+       +#+         #
+#    By: albealva <albealva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/13 15:40:29 by adiaz-be          #+#    #+#              #
-#    Updated: 2022/10/13 15:40:33 by adiaz-be         ###   ########.fr        #
+#    Created: 2024/02/15 18:50:36 by albealva          #+#    #+#              #
+#    Updated: 2024/02/15 18:50:39 by albealva         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

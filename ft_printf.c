@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adiaz-be <adiaz-be@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:37:56 by adiaz-be          #+#    #+#             */
-/*   Updated: 2022/10/13 15:40:08 by adiaz-be         ###   ########.fr       */
+/*   Created: 2024/02/15 18:49:08 by albealva          #+#    #+#             */
+/*   Updated: 2024/02/15 18:49:09 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "ft_printf.h"
 

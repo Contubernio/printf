@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schapuis <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/08/19 21:32:30 by schapuis          #+#    #+#             */
-/*   Updated: 2013/08/20 19:27:18 by schapuis         ###   ########.fr       */
+/*   Created: 2024/02/15 18:49:45 by albealva          #+#    #+#             */
+/*   Updated: 2024/02/15 19:02:47 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-int		check_base(char *base)
+
+static int	check_base(char *base)
 {
 	int	i;
 	int	z;

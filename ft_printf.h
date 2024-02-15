@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adiaz-be <adiaz-be@student.42malaga.c      +#+  +:+       +#+        */
+/*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 15:41:01 by adiaz-be          #+#    #+#             */
-/*   Updated: 2022/10/13 15:41:05 by adiaz-be         ###   ########.fr       */
+/*   Created: 2024/02/15 18:49:16 by albealva          #+#    #+#             */
+/*   Updated: 2024/02/15 18:49:17 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
