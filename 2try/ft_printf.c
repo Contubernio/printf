@@ -92,12 +92,40 @@ int	ft_printf(const char *str, ...)
 	return (count);
 }
 
-/*int	ft_printf(char const *str, ...)
-{
-	int		count;
-	va_list	args;
 
-	count = 0;
-	va_start(args, str);
-	
-}*/
+ // Para comparar con printf
+
+int main(void)
+{
+#include "ft_printf.h"
+#include <stdio.h>
+    int num = -42;
+    unsigned int u_num = 4294967295; // Máximo valor de un unsigned int
+    char *str = "Ejemplo de cadena";
+    char c = 'A';
+    void *ptr = (void *)str;
+
+    ft_printf("Prueba de caracter: %c\n", c);
+    printf("Prueba original (printf): %c\n\n", c);
+
+    ft_printf("Prueba de cadena: %s\n", str);
+    printf("Prueba original (printf): %s\n\n", str);
+
+    ft_printf("Prueba de numero decimal (int): %d\n", num);
+    printf("Prueba original (printf): %d\n\n", num);
+
+    ft_printf("Prueba de numero decimal sin signo (unsigned): %u\n", u_num);
+    printf("Prueba original (printf): %u\n\n", u_num);
+
+    ft_printf("Prueba de numero hexadecimal (minusculas): %x\n", u_num);
+    printf("Prueba original (printf): %x\n\n", u_num);
+
+    ft_printf("Prueba de numero hexadecimal (mayusculas): %X\n", u_num);
+    printf("Prueba original (printf): %X\n\n", u_num);
+
+    ft_printf("Prueba de puntero: %p\n", ptr);
+    printf("Prueba original (printf): %p\n", ptr);
+
+    return 0;
+}
+
