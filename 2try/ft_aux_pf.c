@@ -5,37 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 20:20:50 by albealva          #+#    #+#             */
-/*   Updated: 2024/04/09 10:19:27 by albealva         ###   ########.fr       */
+/*   Created: 2024/04/09 18:12:53 by albealva          #+#    #+#             */
+/*   Updated: 2024/04/09 19:04:17 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(const char c)
+void	ft_putchar(const char c, int *count)
 {
 	int	result;
 
 	result = write(1, &c, 1);
-	return (result);
+	if (result != -1)
+		count[0]++;
+	else
+		count[0] = -1;
+	return ;
 }
 
-int	ft_putstr(const char *str)
+void	ft_putstr(const char *str, int *count)
 {
 	int	i;
 
 	if (!str)
-		return (ft_putstr("(null)"));
+		return (ft_putstr("(null)", count));
 	i = 0;
-	while (str[i])
+	while (str[i] && count[0] != -1)
 	{
-		if (ft_putchar(str[i]) == -1)
-		{
-			return (-1);
-		}
+		ft_putchar(str[i], count);
 		++i;
 	}
-	return (i);
+	return ;
 }
 
 char	*ft_strchr(const char *s, int c)

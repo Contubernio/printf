@@ -6,23 +6,21 @@
 /*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:20:14 by albealva          #+#    #+#             */
-/*   Updated: 2024/03/20 16:26:15 by albealva         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:54:35 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	print_base(ssize_t num, char *base, size_t base_len)
+static void	print_base(ssize_t num, char *base, size_t base_len, int *count)
 {
 	char	str[20];
-	size_t	count;
 	size_t	rem;
 	size_t	i;
 
 	i = 0;
-	count = 0;
 	if (num == 0)
-		count += ft_putchar(base[0]);
+		ft_putchar(base[0], count);
 	while (num != 0)
 	{
 		rem = num % base_len;
@@ -31,27 +29,29 @@ size_t	print_base(ssize_t num, char *base, size_t base_len)
 		++i;
 	}
 	while (i--)
-		count += ft_putchar(str[i]);
-	return (count);
+		ft_putchar(str[i], count);
+	return ;
 }
 
-int	ft_putnbr_base(ssize_t nbr, char *base, size_t base_len, char spf)
+void	ft_putnbr_base(ssize_t nbr, char *base, char spf, int *count)
 {
-	size_t	count;
+	int	i;
 
-	count = 0;
+	i = 0;
+	while (base[i] != 0)
+		i++;
 	if ((spf == 'd' || spf == 'i' || spf == 'u') && nbr < 0)
 	{
-		count += ft_putchar('-');
+		ft_putchar('-', count);
 		nbr = -nbr;
 	}
 	else if (spf == 'p' && nbr == 0)
 	{
-		count += ft_putstr("0x0");
-		return (count);
+		ft_putstr("0x0", count);
+		return ;
 	}
 	else if (spf == 'p')
-		count += ft_putstr("0x");
-	count += print_base(nbr, base, base_len);
-	return (count);
+		ft_putstr("0x", count);
+	print_base(nbr, base, i, count);
+	return ;
 }

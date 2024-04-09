@@ -5,62 +5,70 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/13 20:17:52 by albealva          #+#    #+#             */
-/*   Updated: 2024/04/09 10:16:57 by albealva         ###   ########.fr       */
+/*   Created: 2024/04/09 18:10:23 by albealva          #+#    #+#             */
+/*   Updated: 2024/04/09 19:20:36 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	print_spf(const char c, va_list ap)
+static void	print_spf(const char c, va_list ap, int	*count)
 {
-	size_t	count;
-
-	count = 0;
 	if (c == 'c')
-		count += ft_putchar(va_arg(ap, int));
+		ft_putchar(va_arg(ap, int), count);
 	else if (c == '%')
-		count += ft_putchar('%');
+		ft_putchar('%', count);
 	else if (c == 's')
-		count += ft_putstr(va_arg(ap, char *));
+		ft_putstr(va_arg(ap, char *), count);
 	else if (c == 'd' || c == 'i')
-		count += ft_putnbr_base(va_arg(ap, int), DECIMAL, 10, c);
+		ft_putnbr_base(va_arg(ap, int), DECIMAL, c, count);
 	else if (c == 'u')
-		count += ft_putnbr_base(va_arg(ap, unsigned), DECIMAL, 10, c);
+		ft_putnbr_base(va_arg(ap, unsigned), DECIMAL, c, count);
 	else if (c == 'x')
-		count += ft_putnbr_base(va_arg(ap, unsigned), LOWER_HEX, 16, c);
+		ft_putnbr_base(va_arg(ap, unsigned), LOWER_HEX, c, count);
 	else if (c == 'X')
-		count += ft_putnbr_base(va_arg(ap, unsigned), UPPER_HEX, 16, c);
+		ft_putnbr_base(va_arg(ap, unsigned), UPPER_HEX, c, count);
 	else if (c == 'p')
-		count += ft_putnbr_base(va_arg(ap, long), LOWER_HEX, 16, c);
-	return (count);
+	{
+		if (count[0] < 0)
+			return ;
+		ft_putnbr_base(va_arg(ap, long), LOWER_HEX, c, count);
+	}
+	else
+		count[0] = -1;
+	return ;
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
-	size_t	count;
+	int		count;
 	size_t	i;
 
 	count = 0;
 	i = 0;
 	va_start(ap, str);
-	while (str[i])
+	while (str[i] && count != -1)
 	{
 		if (str[i] == '%' && ft_strchr(SPF, str[i + 1]))
 		{
-			count += print_spf(str[i + 1], ap);
+			print_spf(str[i + 1], ap, &count);
 			i++;
+			if (count < 0)
+				return (-1);
 		}
 		else
 		{
-			count += ft_putchar(str[i]);
+			ft_putchar(str[i], &count);
+			if (count < 0)
+				return (-1);
 		}
 		i++;
 	}
 	va_end(ap);
 	return (count);
 }
+
 /*
 int	main(void)
 {
@@ -94,5 +102,4 @@ int	main(void)
     printf("Prueba original (printf): %p\n", ptr);
 
     return 0;
-}
-*/
+}*/
