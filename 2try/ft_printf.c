@@ -6,7 +6,7 @@
 /*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:17:52 by albealva          #+#    #+#             */
-/*   Updated: 2024/03/20 17:55:04 by albealva         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:16:57 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,14 @@ static int	ft_checking(va_list args, char const *str, int *count)
 	spf = "cspdiuxX%";
 	while (str[i])
 	{
-		if (str[i] == '%' && ft_strchr(spf, str[i + 1]))  // Asegúrate de que el siguiente carácter es un especificador válido.
+		if (str[i] == '%' && ft_strchr(spf, str[i + 1]))
 		{
-			*count += print_spf(str[i + 1], args);  // Usa la función print_spf para manejar el especificador.
-			i++;  // Incrementa i para saltar el especificador en la próxima iteración.
+			*count += print_spf(str[i + 1], args);
+			i++; 
 		}
 		else
 		{
-			*count += ft_putchar(str[i]);  // Si no es '%', imprime el carácter normalmente.
+			*count += ft_putchar(str[i]);
 		}
 		i++;
 	}
@@ -117,34 +117,40 @@ static int	ft_checking(va_list args, char const *str, int *count)
 }
 */
 
-int ft_printf(const char *str, ...) {
-    va_list ap;
-    size_t count = 0;
-    size_t i = 0;
-    char *spf = "cspdiuxX%";
-
-    va_start(ap, str);
-    while (str[i]) {
-        if (str[i] == '%' && ft_strchr(spf, str[i + 1])) {
-            count += print_spf(str[i + 1], ap);
-            i++;  // Saltar el especificador después de manejarlo.
-        } else {
-            count += ft_putchar(str[i]);
-        }
-        i++;
-    }
-    va_end(ap);
-    return count;
-}
-
- // Para comparar con printf
-
-int main(void)
+int	ft_printf(const char *str, ...)
 {
-#include "ft_printf.h"
-#include <stdio.h>
+	va_list	ap;
+	size_t	count;
+	size_t	i;
+	char	*spf;
+
+	spf = "cspdiuxX%";
+	count = 0;
+	i = 0;
+	va_start(ap, str);
+	while (str[i])
+	{
+		if (str[i] == '%' && ft_strchr(spf, str[i + 1]))
+		{
+			count += print_spf(str[i + 1], ap);
+			i++;
+		}
+		else
+		{
+			count += ft_putchar(str[i]);
+		}
+		i++;
+	}
+	va_end(ap);
+	return (count);
+}
+/*
+int	main(void)
+{
+	#include "ft_printf.h"
+	#include <stdio.h>
     int num = -42;
-    unsigned int u_num = 4294967295; // Máximo valor de un unsigned int
+    unsigned int u_num = 4294967295;
     char *str = "Ejemplo de cadena";
     char c = 'A';
     void *ptr = (void *)str;
@@ -172,4 +178,4 @@ int main(void)
 
     return 0;
 }
-
+*/

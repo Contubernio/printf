@@ -6,7 +6,7 @@
 /*   By: albealva <albealva@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 20:20:50 by albealva          #+#    #+#             */
-/*   Updated: 2024/03/20 16:25:32 by albealva         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:19:27 by albealva         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,16 @@ size_t	ft_putcharold(const char c)
 	return (1);
 }
 
-size_t ft_putchar(const char c)
+size_t	ft_putchar(const char c)
 {
-    ssize_t result;
+	ssize_t	result;
 
-    result = write(1, &c, 1);
-    if (result == -1)
-    {
-        return (-1);
-    }
-    return (1);
+	result = write(1, &c, 1);
+	if (result == -1)
+	{
+		return (-1);
+	}
+	return (1);
 }
 
 size_t	ft_putstrold(const char *str)
@@ -45,22 +45,22 @@ size_t	ft_putstrold(const char *str)
 	return (i);
 }
 
-size_t ft_putstr(const char *str)
+size_t	ft_putstr(const char *str)
 {
-    size_t i;
+	size_t	i;
 
-    if (!str)
-        return (ft_putstr("(null)"));
-    i = 0;
-    while (str[i])
-    {
-        if (write(1, &str[i], 1) == -1)
-        {
-            return (-1); 
-        }
-        ++i;
-    }
-    return (i);
+	if (!str)
+		return (ft_putstr("(null)"));
+	i = 0;
+	while (str[i])
+	{
+		if (write(1, &str[i], 1) == -1)
+		{
+			return (-1);
+		}
+		++i;
+	}
+	return (i);
 }
 
 char	*ft_strchr(const char *s, int c)
