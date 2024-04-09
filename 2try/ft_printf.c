@@ -63,7 +63,7 @@ static int	ft_checking(va_list args, char const *str, int *count)
 	return (*count);
 }
 */
-static int	ft_checking(va_list args, char const *str, size_t *count)
+/*static int	ft_checking(va_list args, char const *str, size_t *count)
 {
 	size_t	i;
 	char	*spf;
@@ -85,8 +85,9 @@ static int	ft_checking(va_list args, char const *str, size_t *count)
 	}
 	return (*count);
 }
+*/
 
-int	ft_printf(const char *str, ...)
+/*int	ft_printf(const char *str, ...)
 {
 	char	*spf;
 	va_list	ap;
@@ -114,7 +115,27 @@ int	ft_printf(const char *str, ...)
 	va_end(ap);
 	return (count);
 }
+*/
 
+int ft_printf(const char *str, ...) {
+    va_list ap;
+    size_t count = 0;
+    size_t i = 0;
+    char *spf = "cspdiuxX%";
+
+    va_start(ap, str);
+    while (str[i]) {
+        if (str[i] == '%' && ft_strchr(spf, str[i + 1])) {
+            count += print_spf(str[i + 1], ap);
+            i++;  // Saltar el especificador después de manejarlo.
+        } else {
+            count += ft_putchar(str[i]);
+        }
+        i++;
+    }
+    va_end(ap);
+    return count;
+}
 
  // Para comparar con printf
 
