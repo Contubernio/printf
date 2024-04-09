@@ -39,7 +39,7 @@ size_t	print_spf(const char c, va_list ap)
 		count += ft_putnbr_base(va_arg(ap, long), lower_hex, 16, c);
 	return (count);
 }
-
+/*
 static int	ft_checking(va_list args, char const *str, int *count)
 {
 	int	i;
@@ -57,6 +57,29 @@ static int	ft_checking(va_list args, char const *str, int *count)
 		{
 			if (type_c(str[i], count) == -1)
 				return (-1);
+		}
+		i++;
+	}
+	return (*count);
+}
+*/
+static int	ft_checking(va_list args, char const *str, size_t *count)
+{
+	size_t	i;
+	char	*spf;
+
+	i = 0;
+	spf = "cspdiuxX%";
+	while (str[i])
+	{
+		if (str[i] == '%' && ft_strchr(spf, str[i + 1]))  // Asegúrate de que el siguiente carácter es un especificador válido.
+		{
+			*count += print_spf(str[i + 1], args);  // Usa la función print_spf para manejar el especificador.
+			i++;  // Incrementa i para saltar el especificador en la próxima iteración.
+		}
+		else
+		{
+			*count += ft_putchar(str[i]);  // Si no es '%', imprime el carácter normalmente.
 		}
 		i++;
 	}
