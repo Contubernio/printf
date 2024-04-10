@@ -68,3 +68,27 @@ int	ft_printf(char const *str, ...)
 	va_end(args);
 	return (count);
 }
+
+/*
+int main() {
+#include "ft_printf.h"
+#include <stdio.h>
+
+    int cuenta_ft;
+    int cuenta_std;
+
+    cuenta_ft = ft_printf("Hola, mundo!\n");
+    cuenta_std = printf("Hola, mundo!\n");
+    printf("ft_printf retornó: %d, printf retornó: %d\n", cuenta_ft, cuenta_std);
+
+    cuenta_ft = ft_printf("Número: %d\n", 123);
+    cuenta_std = printf("Número: %d\n", 123);
+    printf("ft_printf retornó: %d, printf retornó: %d\n", cuenta_ft, cuenta_std);
+
+    cuenta_ft = ft_printf("Cadena: %s, Entero: %d, Hex: %#x\n", "prueba", 456, 0xABC);
+    cuenta_std = printf("Cadena: %s, Entero: %d, Hex: %#x\n", "prueba", 456, 0xABC);
+    printf("ft_printf retornó: %d, printf retornó: %d\n", cuenta_ft, cuenta_std);
+
+    return 0;
+}
+*/
